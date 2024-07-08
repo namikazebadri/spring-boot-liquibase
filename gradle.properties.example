@@ -1,0 +1,6 @@
+liquibaseDbUrl=
+liquibaseDbUsername=
+liquibaseDbPass=
+liquibaseDbSchema=
+liquibaseChangelogFile=src/main/resources/db/changelog/db.changelog-master.yaml
+liquibaseLogLevel=error

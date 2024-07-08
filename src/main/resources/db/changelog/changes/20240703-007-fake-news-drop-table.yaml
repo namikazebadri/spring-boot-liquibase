@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0001
+      author: badri
+      changes:
+        - dropTable:
+            tableName: fake_news

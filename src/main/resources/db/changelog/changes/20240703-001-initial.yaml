@@ -1,0 +1,75 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0001
+      author: badri
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  defaultValueComputed: gen_random_uuid()
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: VARCHAR(45)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_active
+                  type: boolean
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_by
+                  type: VARCHAR(75)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: updated_at
+                  type: timestamp with timezone
+                  constraints:
+                    nullable: false
+                  defaultValueComputed: current_timestamp
+              - column:
+                  name: created_by
+                  type: VARCHAR(75)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp with timezone
+                  constraints:
+                    nullable: false
+                  defaultValueComputed: current_timestamp
+        - createIndex:
+            indexName: user_idx_username
+            tableName: user
+            columns:
+              - column:
+                  name: username
+        - createIndex:
+            indexName: user_idx_is_active
+            tableName: user
+            columns:
+              - column:
+                  name: is_active
+  - changeSet:
+      id: 0002
+      author: badri
+      changes:
+        - addUniqueConstraint:
+            columnNames: username
+            constraintName: user_username_idx_uniq
+            tableName: user
+            validate: true

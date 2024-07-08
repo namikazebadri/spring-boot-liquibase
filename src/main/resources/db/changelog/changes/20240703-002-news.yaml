@@ -1,0 +1,101 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0001
+      author: badri
+      changes:
+        - createTable:
+            tableName: news
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(150)
+              - column:
+                  name: is_active
+                  type: boolean
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_by
+                  type: VARCHAR(75)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: updated_at
+                  type: timestamp with timezone
+                  constraints:
+                    nullable: false
+                  defaultValueComputed: current_timestamp
+              - column:
+                  name: created_by
+                  type: VARCHAR(75)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp with timezone
+                  constraints:
+                    nullable: false
+                  defaultValueComputed: current_timestamp
+        - createIndex:
+            indexName: news_idx_title
+            tableName: news
+            columns:
+              - column:
+                  name: title
+  - changeSet:
+      id: 002
+      author: badri
+      changes:
+        - createTable:
+            tableName: fake_news
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(150)
+              - column:
+                  name: is_active
+                  type: boolean
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_by
+                  type: VARCHAR(75)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: updated_at
+                  type: timestamp with timezone
+                  constraints:
+                    nullable: false
+                  defaultValueComputed: current_timestamp
+              - column:
+                  name: created_by
+                  type: VARCHAR(75)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp with timezone
+                  constraints:
+                    nullable: false
+                  defaultValueComputed: current_timestamp
+        - createIndex:
+            indexName: fake_news_idx_title
+            tableName: fake_news
+            columns:
+              - column:
+                  name: title

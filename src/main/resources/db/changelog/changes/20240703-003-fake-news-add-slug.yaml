@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0001
+      author: badri
+      changes:
+        - addColumn:
+            tableName: fake_news
+            columns:
+              - column:
+                  name: slug
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+        - createIndex:
+            indexName: fake_news_idx_slug
+            tableName: fake_news
+            columns:
+              - column:
+                  name: slug

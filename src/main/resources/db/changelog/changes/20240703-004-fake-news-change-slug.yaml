@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0001
+      author: badri
+      changes:
+        - renameColumn:
+            tableName: fake_news
+            oldColumnName: slug
+            newColumnName: slug_new

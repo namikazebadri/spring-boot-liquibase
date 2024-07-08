@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0001
+      author: badri
+      changes:
+        - dropColumn:
+            tableName: fake_news
+            columnName: slug_new
